@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>星级评价</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.12.4.js"></script>
+  </head>
+  <body>
+    <ul class="comment">
+      <li class="light"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+			//给每一个li标签注册鼠标的移入
+			//给每一个li标签注册鼠标的移出
+			$(".comment li").hover(
+				// 移入
+				function(){
+					// $(this) 第一次确定位置
+					$(this).addClass("light").prevAll('li').addClass('light');
+					// $(this)离开第一次确定位置li
+					$(this).nextAll("li").removeClass("light");
+				},
+				// 移出
+				function(){
+					// $(this).removeClass("light").siblings("li").removeClass("light");
+					$(".comment").find("li").removeClass("light");
+					$(".comment>li[light=on]").addClass("light").prevAll('li').addClass('light');
+				}
+			);
+		 
+		 //点击事件
+     $(".comment > li").click(function(){
+     	// $(this).addClass("light").prevAll("li").addClass("light");
+     	// 需要有一个标记  记录我点击 这一个li 
+     	$(this).attr("light","on");
+     	$(this).nextAll("li").removeAttr("light");
+     });
+	   
+	   
+    </script>
+</body>
+</html>

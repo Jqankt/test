@@ -1,0 +1,16 @@
+ul {
+	padding-left: 0;
+	overflow: hidden;
+}
+
+ul li {
+	float: left;
+	list-style: none;
+	width: 27px;
+	height: 27px;
+	background: url(../img/star.gif)
+}
+
+ul li.light {
+	background-position: 0 -29px;
+}
